@@ -18,6 +18,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Falcata.BillPlanner.Domain"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Falcata.BillPlanner.Domain.Test", "src\Falcata.BillPlanner.Domain.Test\Falcata.BillPlanner.Domain.Test.csproj", "{774977C2-1C4F-490C-993A-75E481C0943E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Falcata.BillPlanner.Application", "src\Falcata.BillPlanner.Application\Falcata.BillPlanner.Application.csproj", "{0DB39980-A87B-4B36-B83A-2195B60391E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Falcata.BillPlanner.Application.Test", "src\Falcata.BillPlanner.Application.Test\Falcata.BillPlanner.Application.Test.csproj", "{29958C5B-AD22-414A-82A7-E65DEE7E56C9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +36,8 @@ Global
 		{7953AE98-7727-4345-96C3-1C4B45564102} = {40311634-D576-4A79-BD52-30D4BFF2B630}
 		{A765D906-C964-4961-B524-5E252D7DF80B} = {A25E998D-D55B-48C1-938A-2651429B5448}
 		{774977C2-1C4F-490C-993A-75E481C0943E} = {A25E998D-D55B-48C1-938A-2651429B5448}
+		{0DB39980-A87B-4B36-B83A-2195B60391E6} = {37FD4AE5-445D-49E0-9E67-5E5BF21B8F2A}
+		{29958C5B-AD22-414A-82A7-E65DEE7E56C9} = {37FD4AE5-445D-49E0-9E67-5E5BF21B8F2A}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{7953AE98-7727-4345-96C3-1C4B45564102}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -46,5 +52,13 @@ Global
 		{774977C2-1C4F-490C-993A-75E481C0943E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{774977C2-1C4F-490C-993A-75E481C0943E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{774977C2-1C4F-490C-993A-75E481C0943E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DB39980-A87B-4B36-B83A-2195B60391E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DB39980-A87B-4B36-B83A-2195B60391E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DB39980-A87B-4B36-B83A-2195B60391E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DB39980-A87B-4B36-B83A-2195B60391E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29958C5B-AD22-414A-82A7-E65DEE7E56C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29958C5B-AD22-414A-82A7-E65DEE7E56C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29958C5B-AD22-414A-82A7-E65DEE7E56C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29958C5B-AD22-414A-82A7-E65DEE7E56C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
