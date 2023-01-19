@@ -6,4 +6,19 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Reference Include="Microsoft.Extensions.Hosting.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+        <HintPath>..\..\..\..\..\..\usr\local\share\dotnet\shared\Microsoft.AspNetCore.App\6.0.8\Microsoft.Extensions.Hosting.Abstractions.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Falcata.BillPlanner.Application.Interfaces\Falcata.BillPlanner.Application.Interfaces.csproj" />
+      <ProjectReference Include="..\Falcata.BillPlanner.Application\Falcata.BillPlanner.Application.csproj" />
+    </ItemGroup>
+
 </Project>

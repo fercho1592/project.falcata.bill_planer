@@ -10,4 +10,9 @@
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Falcata.BillPlanner.Application.Interfaces\Falcata.BillPlanner.Application.Interfaces.csproj" />
+      <ProjectReference Include="..\Falcata.BillPlanner.DI\Falcata.BillPlanner.DI.csproj" />
+    </ItemGroup>
+
 </Project>
