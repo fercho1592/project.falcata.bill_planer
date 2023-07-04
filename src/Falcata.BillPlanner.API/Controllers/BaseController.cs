@@ -1,3 +1,6 @@
+using System.Text;
+using Falcata.BillPlanner.Application.Feature.MediatorTest;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Falcata.BillPlanner.API.Controllers;
@@ -6,9 +9,22 @@ namespace Falcata.BillPlanner.API.Controllers;
 [Route("[controller]")]
 public class BaseController : ControllerBase
 {
-    [HttpGet]
-    public string Index()
+    private readonly IMediator _mediator;
+
+    public BaseController(IMediator mediator)
     {
-        return "Hello world";
+        _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+    }
+    
+    [HttpGet]
+    public async Task<string> Index()
+    {
+        StringBuilder srtResult = new StringBuilder("Hello world");
+
+        var mediatorResult = await _mediator.Send(new MediatorTestQuery());
+
+        srtResult.AppendLine($"MediatoR Test: {mediatorResult}");
+        
+        return srtResult.ToString();
     }
 }
