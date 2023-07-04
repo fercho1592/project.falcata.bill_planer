@@ -18,4 +18,8 @@
       <Compile Remove="Services\DITestService.cs" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="MediatR" Version="12.0.1" />
+    </ItemGroup>
+
 </Project>
