@@ -7,15 +7,15 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Services" />
+      <Folder Include="Repositories\" />
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Remove="Services\IDITestService.cs" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.8" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Falcata.BillPlanner.Domain\Falcata.BillPlanner.Domain.csproj" />
+      <ProjectReference Include="..\Falcata.BillPlanner.Application.Interfaces\Falcata.BillPlanner.Application.Interfaces.csproj" />
     </ItemGroup>
 
 </Project>
