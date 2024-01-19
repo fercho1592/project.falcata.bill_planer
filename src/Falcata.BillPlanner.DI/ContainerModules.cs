@@ -11,6 +11,7 @@ public static class ContainerModules
         webHost.ConfigureServices(services =>
         {
             services.RegisterMediatR(ApplicationAssemblyFinder.GetAssembly());
+            services.RegisterPersistenceContainers(ApplicationAssemblyFinder.GetAssembly());
         });
 
         return webHost;

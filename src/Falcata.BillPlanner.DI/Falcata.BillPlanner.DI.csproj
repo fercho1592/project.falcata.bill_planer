@@ -17,6 +17,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Falcata.BillPlaner.Persistence\Falcata.BillPlaner.Persistence.csproj" />
       <ProjectReference Include="..\Falcata.BillPlanner.Application.Interfaces\Falcata.BillPlanner.Application.Interfaces.csproj" />
       <ProjectReference Include="..\Falcata.BillPlanner.Application\Falcata.BillPlanner.Application.csproj" />
     </ItemGroup>
