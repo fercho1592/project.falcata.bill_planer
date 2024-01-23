@@ -1,3 +1,4 @@
+using Falcata.BillPlaner.Persistence.Reflection;
 using Falcata.BillPlanner.Application.Reflection;
 using Microsoft.AspNetCore.Hosting;
 
@@ -11,7 +12,7 @@ public static class ContainerModules
         webHost.ConfigureServices(services =>
         {
             services.RegisterMediatR(ApplicationAssemblyFinder.GetAssembly());
-            services.RegisterPersistenceContainers(ApplicationAssemblyFinder.GetAssembly());
+            services.RegisterPersistenceContainers(PersistenceAssemblyFinder.GetAssembly());
         });
 
         return webHost;
