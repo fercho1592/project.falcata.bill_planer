@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace Falcata.BillPlaner.Persistence.Configuration;
+namespace Falcata.BillPlaner.Persistence.Configuration.Base;
 
 public interface IBaseEntityTypeConfiguration<TEntity>: IEntityTypeConfiguration<TEntity>
     where TEntity : class

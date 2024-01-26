@@ -9,11 +9,11 @@ using Microsoft.Extensions.Logging;
 
 namespace Falcata.BillPlaner.Persistence.Repositories;
 
-public class AccountRepository: BaseRepository<Account, long, BillPlanerDbContext>, IAccountQueryRepository, IAccountCommandRepository
+public class AccountRepository: BaseRepository<Account, long, IBillPlanerDbContext>, IAccountQueryRepository, IAccountCommandRepository
 {
     protected override DbSet<Account> Entities => _context.Accounts;
 
-    public AccountRepository(BillPlanerDbContext context, ILogger<AccountRepository> logger) : base(context, logger)
+    public AccountRepository(IBillPlanerDbContext context, ILogger<AccountRepository> logger) : base(context, logger)
     {
     }
 

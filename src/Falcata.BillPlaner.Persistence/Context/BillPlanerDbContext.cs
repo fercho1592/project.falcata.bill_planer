@@ -9,5 +9,16 @@ public class BillPlanerDbContext: BaseDbContext, IBillPlanerDbContext
     {
     }
 
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        base.OnModelCreating(builder);
+        
+        base.SetEntityConfigurations(builder, typeof(IBillPlannerEntityTypeConfiguration<>), "dbo");
+    }
+    
     public DbSet<Account> Accounts { get; set; }
+}
+
+public interface IBillPlannerEntityTypeConfiguration<T>
+{
 }
