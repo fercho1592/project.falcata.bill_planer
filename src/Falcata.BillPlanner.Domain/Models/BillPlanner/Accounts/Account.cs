@@ -1,5 +1,6 @@
 using Falcata.BillPlanner.Domain.Enums;
 using Falcata.BillPlanner.Domain.Models.Base;
+using Falcata.BillPlanner.Domain.Models.BillPlanner.PromisoryNote;
 
 namespace Falcata.BillPlanner.Domain.Models.BillPlanner.Accounts;
 
@@ -16,6 +17,8 @@ public abstract class Account: BaseEntity<long>
     public abstract AccountTypeEnum AccountTypeEnum { get; }
 
     public List<AccountMovement> AccountMovements { get; set; }
+    public List<DebtPeriod.DebtPeriod>? DebtPeriods { get; set; }
+    public IEnumerable<PromissoryNote>? PromissoryNotes { get; set; }
 
     public virtual decimal CalculateTotalAmountByDate(DateTimeOffset initDate, DateTimeOffset? lastDate = null)
     {

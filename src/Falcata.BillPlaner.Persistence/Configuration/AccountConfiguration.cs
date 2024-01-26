@@ -12,12 +12,12 @@ public class AccountConfiguration: BaseEntityTypeConfiguration<Account>, IBillPl
     protected override void ConfigureTable(EntityTypeBuilder<Account> builder)
     {
         builder.ToTable("account")
-            .HasDiscriminator(account => account.AccountTypeId)
+            .HasKey(x => x.AccountId);
+        
+        builder.HasDiscriminator(account => account.AccountTypeId)
             .HasValue<CreditAccount>((int)AccountTypeEnum.Credit)
             .HasValue<DebitAccount>((int)AccountTypeEnum.Debit)
             .HasValue<SavingsAccount>((int)AccountTypeEnum.Savings);
-
-        builder.Ignore(x => x.AccountMovements);
     }
 
     protected override void ConfigureColumns(EntityTypeBuilder<Account> builder)
