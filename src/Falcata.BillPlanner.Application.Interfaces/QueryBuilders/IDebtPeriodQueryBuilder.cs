@@ -1,5 +1,5 @@
 using Falcata.BillPlanner.Application.Interfaces.QueryBuilders.Base;
-using Falcata.BillPlanner.Domain.Models.BillPlanner.DebtPeriod;
+using Falcata.BillPlanner.Domain.Models.BillPlanner.DebtPeriods;
 
 namespace Falcata.BillPlanner.Application.Interfaces.QueryBuilders;
 

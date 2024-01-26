@@ -1,7 +1,6 @@
 using Falcata.BillPlaner.Persistence.Configuration.Base;
 using Falcata.BillPlaner.Persistence.Context;
-using Falcata.BillPlanner.Domain.Models.BillPlanner.Accounts;
-using Falcata.BillPlanner.Domain.Models.BillPlanner.DebtPeriod;
+using Falcata.BillPlanner.Domain.Models.BillPlanner.DebtPeriods;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

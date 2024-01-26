@@ -1,7 +1,7 @@
 using Falcata.BillPlanner.Domain.Models.Base;
 using Falcata.BillPlanner.Domain.Models.BillPlanner.Accounts;
 
-namespace Falcata.BillPlanner.Domain.Models.BillPlanner.DebtPeriod;
+namespace Falcata.BillPlanner.Domain.Models.BillPlanner.DebtPeriods;
 
 public class DebtPeriod: BaseEntity<long>
 {
