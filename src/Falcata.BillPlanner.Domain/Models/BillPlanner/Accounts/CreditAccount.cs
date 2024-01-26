@@ -20,4 +20,12 @@ public class CreditAccount: Account
 
         return result;
     }
+
+    public override decimal CalculateTotalAmountByDate(DateTimeOffset initDate, DateTimeOffset? lastDate = null)
+    {
+        lastDate ??= initDate.AddMonths(1);
+        var movements = AccountMovements?.Where(mov => mov.CreationDate >= initDate && mov.CreationDate < lastDate);
+        
+        return -1;
+    }
 }

@@ -14,6 +14,17 @@ public abstract class Account: BaseEntity<long>
 
     public string AccountTypeName => nameof(AccountTypeEnum);
     public abstract AccountTypeEnum AccountTypeEnum { get; }
-    
-    public virtual List<AccountMovement> AccountMovements { get; set; }
+
+    public List<AccountMovement> AccountMovements { get; set; }
+
+    public virtual decimal CalculateTotalAmountByDate(DateTimeOffset initDate, DateTimeOffset? lastDate = null)
+    {
+        lastDate ??= initDate.AddMonths(1);
+        var movements = AccountMovements?.Where(mov => mov.CreationDate >= initDate && mov.CreationDate < lastDate);
+        
+        var lastMovement =movements?.MaxBy(x => x.CreationDate) ?? 
+            AccountMovements?.MaxBy(x => x.CreationDate);
+
+        return lastMovement?.CurrentAmount ?? 0;
+    }
 }
