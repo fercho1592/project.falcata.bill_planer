@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Falcata.BillPlanner.API.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class BaseController : ControllerBase
 {
     private readonly IMediator _mediator;
@@ -14,17 +14,5 @@ public class BaseController : ControllerBase
     public BaseController(IMediator mediator)
     {
         _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
-    }
-    
-    [HttpGet]
-    public async Task<string> Index()
-    {
-        StringBuilder srtResult = new StringBuilder("Hello world");
-
-        var mediatorResult = await _mediator.Send(new MediatorTestQuery());
-
-        srtResult.AppendLine($"MediatoR Test: {mediatorResult}");
-        
-        return srtResult.ToString();
     }
 }
