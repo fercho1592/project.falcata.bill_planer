@@ -12,6 +12,7 @@ public class AccountMovement: BaseEntity<long>
     public decimal MovementAmount { get; set; }
     public decimal CurrentAmount { get; set; }
     public long PromissoryNoteId { get; set; }
+    public bool IsLastMovement { get; set; }
     
     public Account? Account { get; set; }
     public PromissoryNote? PromissoryNote { get; set; }

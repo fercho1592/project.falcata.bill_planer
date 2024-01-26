@@ -46,5 +46,8 @@ public class AccountMovementConfiguration: BaseEntityTypeConfiguration<AccountMo
         
         builder.Property(x => x.PromissoryNoteId)
             .HasColumnName("promissory_note_id");
+        
+        builder.Property(x => x.IsLastMovement)
+            .HasColumnName("is_last_movement");
     }
 }
