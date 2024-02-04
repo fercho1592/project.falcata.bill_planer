@@ -6,6 +6,8 @@ public class CreditAccount: Account
 {
     public override AccountTypeEnum AccountTypeEnum => AccountTypeEnum.Credit;
     
+    private CreditAccount(){}
+    
     public static CreditAccount CreateAccount(int userId, string name)
     {
         var result = new CreditAccount()
