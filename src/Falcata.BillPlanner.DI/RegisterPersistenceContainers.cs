@@ -1,9 +1,7 @@
 using System.Reflection;
 using Falcata.BillPlaner.Persistence.Context;
 using Falcata.BillPlaner.Persistence.Repositories;
-using Falcata.BillPlaner.Persistence.Repositories.Base;
 using Falcata.BillPlanner.Application.Interfaces.Repositories;
-using Falcata.BillPlanner.Application.Interfaces.Repositories.Base;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -26,11 +24,14 @@ public static class PersistenceContainers
         // Register class
         // service.AddScoped<TRepository>()
         service.AddScoped<AccountRepository>();
+        service.AddScoped<DebtPeriodRepository>();
             
         // Link class with interfaces
         // service.AddScoped<TIRepository>(x => x.GetService<TRepository>() ?? throw new InvalidOperationException())
         service.AddScoped<IAccountQueryRepository>(x => x.GetService<AccountRepository>() ?? throw new InvalidOperationException());
         service.AddScoped<IAccountCommandRepository>(x => x.GetService<AccountRepository>() ?? throw new InvalidOperationException());
+        service.AddScoped<IDebtPeriodQueryRepository>(x => x.GetService<DebtPeriodRepository>() ?? throw new InvalidOperationException());
+        service.AddScoped<IDebtPeriodCommandRepository>(x => x.GetService<DebtPeriodRepository>() ?? throw new InvalidOperationException());
     }
 
     private static void RegisterContext(this IServiceCollection service, Assembly[] assemblies)
