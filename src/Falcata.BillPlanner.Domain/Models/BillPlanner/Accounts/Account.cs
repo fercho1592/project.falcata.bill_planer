@@ -7,10 +7,10 @@ namespace Falcata.BillPlanner.Domain.Models.BillPlanner.Accounts;
 
 public abstract class Account: BaseEntity<long>
 {
-    public int AccountId { get; set; }
-    public int UserId { get; set; }
+    public int AccountId { get; protected set; }
+    public int UserId { get; protected set; }
     public string Name { get; set; }
-    public int AccountTypeId { get; set; }
+    public int AccountTypeId { get; protected set; }
     public int? AccountLimit { get; set; }
     public int? AccountMin { get; set; }
 

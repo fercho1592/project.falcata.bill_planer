@@ -17,6 +17,14 @@ public class AccountQueryBuilder: BaseQueryBuilder<Account>, IAccountQueryBuilde
         return this;
     }
 
+    public IAccountQueryBuilder IncludeAccountMovementFromDates(DateTimeOffset from, DateTimeOffset to)
+    {
+        Query = Query.Include(acc => acc.AccountMovements.Where(
+            mov => mov.CreationDate >= from && mov.CreationDate < to));
+
+        return this;
+    }
+
     public IAccountQueryBuilder IncludeDebtPeriodAccountMovements(DateTimeOffset from, DateTimeOffset to)
     {
         Query = Query.Include(x => x.DebtPeriods!.Where(period => period.CutOffDate > to && period.CutOffDate < from));
