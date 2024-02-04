@@ -1,4 +1,5 @@
 using Falcata.BillPlanner.Domain.Enums;
+using Falcata.BillPlanner.Domain.Models.BillPlanner.DebtPeriods;
 
 namespace Falcata.BillPlanner.Domain.Models.BillPlanner.Accounts;
 
@@ -25,9 +26,9 @@ public class CreditAccount: Account
 
     public override decimal CalculateTotalAmountByDate(DateTimeOffset initDate, DateTimeOffset? lastDate = null)
     {
-        lastDate ??= initDate.AddMonths(1);
-        var movements = AccountMovements?.Where(mov => mov.CreationDate >= initDate && mov.CreationDate < lastDate);
+        var debtPeriods = (DebtPeriods ?? new List<DebtPeriod>())
+            .Where(x => x.CutOffDate >= initDate && x.CutOffDate < lastDate).ToList();
         
-        return -1;
+        return debtPeriods.Sum(x => x.CumulativeAmount);
     }
 }
