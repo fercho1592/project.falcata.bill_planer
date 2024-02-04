@@ -1,4 +1,5 @@
 using Falcata.BillPlanner.Application.Interfaces.Repositories;
+using Falcata.BillPlanner.Domain.Models.BillPlanner.Accounts;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
@@ -25,6 +26,9 @@ public class GetAccountsStatusQueryHandler: IRequestHandler<GetAccountsStatusQue
             _logger.LogTrace($"Start {nameof(GetAccountsStatusQueryHandler)}");
 
             var query = _accountQueryRepository.NewQueryBuilder()
+                .IncludeLastAccountMovement()
+                .IncludeUnpaidPromissoryNotes()
+                .IncludeDebtPeriodAccountMovements(request.FromDate, request.ToDate ?? request.FromDate.AddMonths(1))
                 .NoTracking()
                 .SetPredicate(account => account.UserId == _userId);
 
