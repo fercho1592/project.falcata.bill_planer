@@ -29,7 +29,7 @@ public class DebtPeriodDetail : BaseEntity<long>
         return this;
     }
 
-    public static IEnumerable<DebtPeriodDetail> CreateDebtPeriods(AccountMovement movement, short periods)
+    public static IEnumerable<DebtPeriodDetail> CreateDebtPeriodsDetails(AccountMovement movement, short periods)
     {
         var partialAmounts = SplitAmountsInPeriods(movement.MovementAmount, periods);
 
@@ -46,15 +46,19 @@ public class DebtPeriodDetail : BaseEntity<long>
     private static IEnumerable<decimal> SplitAmountsInPeriods(decimal totalAmount, short periods)
     {
         if (periods == 0 || periods == 1)
+        {
             yield return totalAmount;
+            yield break;
+        }
 
         var perPeriod = totalAmount / periods;
-
+        
         for (int i = 0; i < periods; i++)
         {
             if (i == 0)
-                yield return Math.Round(perPeriod, 2, MidpointRounding.AwayFromZero);
-            yield return Math.Round(perPeriod, 2, MidpointRounding.ToEven);
+                yield return Math.Round(perPeriod, 2, MidpointRounding.ToPositiveInfinity);
+            else
+                yield return Math.Round(perPeriod, 2, MidpointRounding.ToZero);
         }
     }
 }

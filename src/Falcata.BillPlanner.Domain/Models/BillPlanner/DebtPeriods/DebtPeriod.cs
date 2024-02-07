@@ -43,7 +43,7 @@ public class DebtPeriod: BaseEntity<(int AccountId, int MonthCutOffDate, int Yea
             if(Details.Exists(x => x.AccountMovementId == mov.AccountMovementId))
                continue;
             
-            debtPeriodDetails.AddRange(DebtPeriodDetail.CreateDebtPeriods(mov, 1)); 
+            debtPeriodDetails.AddRange(DebtPeriodDetail.CreateDebtPeriodsDetails(mov, 1)); 
         }
         
         Details ??= new List<DebtPeriodDetail>();
