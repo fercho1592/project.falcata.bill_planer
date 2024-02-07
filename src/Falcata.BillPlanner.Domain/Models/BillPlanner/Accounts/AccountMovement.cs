@@ -20,4 +20,15 @@ public class AccountMovement: BaseEntity<long>
     public virtual List<DebtPeriodDetail>? DebtPeriodDetails { get; set; }
 
     internal AccountMovement(){}
+
+    public static AccountMovement Create(int accountId, string detail, decimal amount, decimal oldCurrentAmount)
+    {
+        return new AccountMovement()
+        {
+            AccountId = accountId,
+            Detail = detail,
+            MovementAmount = Math.Round(amount, 2, MidpointRounding.ToPositiveInfinity),
+            CurrentAmount = oldCurrentAmount + amount
+        };
+    }
 }
