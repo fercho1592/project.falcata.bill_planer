@@ -8,4 +8,5 @@ public interface IBillPlanerDbContext: IBaseDbContext
 {
     DbSet<Account> Accounts { get; set; }
     DbSet<DebtPeriod> DebtPeriods { get; set; }
+    DbSet<AccountMovement> AccountMovements { get; set; }
 }

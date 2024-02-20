@@ -19,6 +19,7 @@ public class BillPlanerDbContext: BaseDbContext, IBillPlanerDbContext
     
     public DbSet<Account> Accounts { get; set; }
     public DbSet<DebtPeriod> DebtPeriods { get; set; }
+    public DbSet<AccountMovement> AccountMovements { get; set; }
 }
 
 public interface IBillPlannerEntityTypeConfiguration<T>
