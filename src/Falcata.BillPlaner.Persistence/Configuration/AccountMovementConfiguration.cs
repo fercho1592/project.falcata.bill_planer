@@ -1,5 +1,6 @@
 using Falcata.BillPlaner.Persistence.Configuration.Base;
 using Falcata.BillPlaner.Persistence.Context;
+using Falcata.BillPlanner.Domain.Enums;
 using Falcata.BillPlanner.Domain.Models.BillPlanner.Accounts;
 using Falcata.BillPlanner.Domain.Models.BillPlanner.PromisoryNote;
 using Microsoft.EntityFrameworkCore;
@@ -13,6 +14,11 @@ public class AccountMovementConfiguration: BaseEntityTypeConfiguration<AccountMo
     {
         builder.ToTable("account_movement")
             .HasKey(x => x.AccountMovementId);
+        
+        builder.HasDiscriminator(account => account.AccountTypeId)
+            .HasValue<CreditAccountMovement>((int)AccountTypeEnum.Credit)
+            .HasValue<DebitAccountMovement>((int)AccountTypeEnum.Debit)
+            .HasValue<DebitAccountMovement>((int)AccountTypeEnum.Savings);
 
         builder.HasOne(x => x.Account)
             .WithMany(x => x.AccountMovements)

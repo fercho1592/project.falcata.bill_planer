@@ -9,7 +9,7 @@ public class DebtPeriodDetailTest
     public void CreateDebtPeriods_PartialAccountMovement_MultipleDebtPeriodDetail()
     {
         short partials = 3;
-        var movement = AccountMovementData.SimpleMovement;
+        var movement = AccountMovementData.SimpleCreditMovement;
 
         var details = DebtPeriodDetail.CreateDebtPeriodsDetails(movement, partials);
         
@@ -21,7 +21,7 @@ public class DebtPeriodDetailTest
     [Fact]
     public void CreateDebtPeriods_RegularAccountMovement_DebtPeriodDetail()
     {
-        var movement = AccountMovementData.SimpleMovement;
+        var movement = AccountMovementData.SimpleCreditMovement;
 
         var details = DebtPeriodDetail.CreateDebtPeriodsDetails(movement, 1);
         
