@@ -16,13 +16,16 @@ public class PromissoryNoteConfiguration: BaseEntityTypeConfiguration<Promissory
 
         builder.HasOne(x => x.Account)
             .WithMany(x => x.PromissoryNotes)
-            .HasForeignKey(x => x.AccountId);
+            .HasForeignKey(x => new {x.AccountId, x.AccountTypeId});
     }
 
     protected override void ConfigureColumns(EntityTypeBuilder<PromissoryNote> builder)
     {
         builder.Property(x => x.AccountId)
             .HasColumnName("account_id");
+        
+        builder.Property(x => x.AccountTypeId)
+            .HasColumnName("account_type_id");
         
         builder.Property(x => x.PromissoryNoteId)
             .HasColumnName("promissory_note_id")

@@ -15,13 +15,16 @@ public class DebtPeriodConfiguration: BaseEntityTypeConfiguration<DebtPeriod>, I
 
         builder.HasOne(x => x.Account)
             .WithMany(x => x.DebtPeriods)
-            .HasForeignKey(x => x.AccountId);
+            .HasForeignKey(x => new {x.AccountId, x.AccountTypeId});
     }
 
     protected override void ConfigureColumns(EntityTypeBuilder<DebtPeriod> builder)
     {
         builder.Property(x => x.AccountId)
             .HasColumnName("account_id");
+        
+        builder.Property(x => x.AccountTypeId)
+            .HasColumnName("account_type_id");
         
         builder.Property(x => x.MonthCutOffDate)
             .HasColumnName("month_debt_Period");

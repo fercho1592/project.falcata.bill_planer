@@ -16,7 +16,7 @@ public class AccountMovementConfiguration: BaseEntityTypeConfiguration<AccountMo
 
         builder.HasOne(x => x.Account)
             .WithMany(x => x.AccountMovements)
-            .HasForeignKey(x => x.AccountId);
+            .HasForeignKey(x => new {x.AccountId, x.AccountTypeId});
 
         builder.HasOne(x => x.PromissoryNote)
             .WithMany(x => x.AccountMovements)
@@ -31,6 +31,9 @@ public class AccountMovementConfiguration: BaseEntityTypeConfiguration<AccountMo
         
         builder.Property(x => x.AccountId)
             .HasColumnName("account_id");
+        
+        builder.Property(x => x.AccountTypeId)
+            .HasColumnName("account_type_id");
         
         builder.Property(x => x.Detail)
             .HasColumnName("movement_detail");

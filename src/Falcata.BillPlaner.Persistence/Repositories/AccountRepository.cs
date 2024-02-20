@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Falcata.BillPlaner.Persistence.Repositories;
 
-public class AccountRepository: BaseRepository<Account, long, IBillPlanerDbContext>, IAccountQueryRepository, IAccountCommandRepository
+public class AccountRepository: BaseRepository<Account, (long AccountId, int AccountTypeId), IBillPlanerDbContext>, IAccountQueryRepository, IAccountCommandRepository
 {
     protected override DbSet<Account> Entities => _context.Accounts;
 

@@ -12,7 +12,7 @@ public class AccountConfiguration: BaseEntityTypeConfiguration<Account>, IBillPl
     protected override void ConfigureTable(EntityTypeBuilder<Account> builder)
     {
         builder.ToTable("account")
-            .HasKey(x => x.AccountId);
+            .HasKey(x => new { x.AccountId, x.AccountTypeId });
         
         builder.HasDiscriminator(account => account.AccountTypeId)
             .HasValue<CreditAccount>((int)AccountTypeEnum.Credit)

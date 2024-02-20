@@ -5,7 +5,7 @@ using Falcata.BillPlanner.Domain.Models.BillPlanner.PromisoryNote;
 
 namespace Falcata.BillPlanner.Domain.Models.BillPlanner.Accounts;
 
-public abstract class Account: BaseEntity<long>
+public abstract class Account: BaseEntity<(long AccountId, int AccountTypeId)>
 {
     public int AccountId { get; protected set; }
     public int UserId { get; protected set; }

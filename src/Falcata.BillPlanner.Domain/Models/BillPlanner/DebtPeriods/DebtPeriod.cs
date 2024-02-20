@@ -5,7 +5,8 @@ namespace Falcata.BillPlanner.Domain.Models.BillPlanner.DebtPeriods;
 
 public class DebtPeriod: BaseEntity<(int AccountId, int MonthCutOffDate, int YearCutOffDate)>
 {
-    public int AccountId { get; private set; }
+    public long AccountId { get; private set; }
+    public int AccountTypeId { get; private set; }
     public int MonthCutOffDate { get; internal set; }
     public int YearCutOffDate { get; internal set; }
     public DateTimeOffset CutOffDate { get; private set; }
