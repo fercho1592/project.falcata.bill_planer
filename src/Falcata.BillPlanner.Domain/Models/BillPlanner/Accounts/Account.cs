@@ -5,11 +5,11 @@ using Falcata.BillPlanner.Domain.Models.BillPlanner.PromisoryNote;
 
 namespace Falcata.BillPlanner.Domain.Models.BillPlanner.Accounts;
 
-public abstract class Account: BaseEntity<(long AccountId, int AccountTypeId)>
+public abstract class Account: BaseEntity<(int AccountId, int AccountTypeId)>
 {
     public int AccountId { get; protected set; }
     public int UserId { get; protected set; }
-    public string Name { get; set; }
+    public string? Name { get; set; }
     public int AccountTypeId { get; protected set; }
     public int? AccountLimit { get; set; }
     public int? AccountMin { get; set; }
@@ -17,7 +17,7 @@ public abstract class Account: BaseEntity<(long AccountId, int AccountTypeId)>
     public string AccountTypeName => AccountTypeEnum.ToString();
     public abstract AccountTypeEnum AccountTypeEnum { get; }
 
-    public List<AccountMovement> AccountMovements { get; set; }
+    public List<AccountMovement> AccountMovements { get; set; } = new List<AccountMovement>();
     public List<DebtPeriod>? DebtPeriods { get; set; }
     public IEnumerable<PromissoryNote>? PromissoryNotes { get; set; }
 

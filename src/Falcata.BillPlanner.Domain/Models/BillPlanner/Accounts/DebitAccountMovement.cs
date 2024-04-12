@@ -24,4 +24,11 @@ public class DebitAccountMovement: AccountMovement
             CurrentAmount = oldCurrentAmount + amount
         };
     }
+
+    public override void SetDebtPeriod(short accountMovementPartials, DateTimeOffset date)
+    {
+        base.SetDebtPeriod(accountMovementPartials, date);
+        
+        //
+    }
 }

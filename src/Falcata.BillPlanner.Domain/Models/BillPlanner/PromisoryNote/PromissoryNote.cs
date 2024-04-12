@@ -12,5 +12,5 @@ public class PromissoryNote: BaseEntity<long>
     public string? Note { get; set; }
     public DateTimeOffset DeadlineDate { get; set; }
     public List<AccountMovement>? AccountMovements { get; set; }
-    public Account Account { get; set; }
+    public Account? Account { get; set; }
 }

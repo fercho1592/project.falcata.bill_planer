@@ -51,6 +51,15 @@ public abstract class BaseRepository<TEntity, TKey, TDbContext>:
         (IQueryable<TEntity> query, Expression<Func<TEntity, bool>>? predicate) = (queryBuilder as BaseQueryBuilder<TEntity>)!.GetQuery();
         return await ExecuteListAsync(query, predicate, cancellationToken);
     }
+    
+    public async Task<TEntity?> FindAsync(IQueryBuilder<TEntity> queryBuilder, CancellationToken cancellationToken)
+    {
+        if (queryBuilder is null)
+            throw new ArgumentNullException(nameof(IQueryBuilder<TEntity>), $"{nameof(queryBuilder)} cannot be null");
+
+        (IQueryable<TEntity> query, Expression<Func<TEntity, bool>>? predicate) = (queryBuilder as BaseQueryBuilder<TEntity>)!.GetQuery();
+        return (await ExecuteListAsync(query, predicate, cancellationToken)).FirstOrDefault();
+    }
 
     public async Task<bool> CreateAsync(TEntity entity, CancellationToken cancellationToken)
     {

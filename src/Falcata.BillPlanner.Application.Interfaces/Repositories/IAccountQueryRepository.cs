@@ -5,7 +5,7 @@ using Falcata.BillPlanner.Domain.Models.BillPlanner.Accounts;
 
 namespace Falcata.BillPlanner.Application.Interfaces.Repositories;
 
-public interface IAccountQueryRepository: IQueryRepository<Account, (long AccountId, int AccountTypeId)>, 
+public interface IAccountQueryRepository: IQueryRepository<Account, (int AccountId, int AccountTypeId)>, 
     IQueryBuilderProvider<IAccountQueryBuilder, Account>
 {
     

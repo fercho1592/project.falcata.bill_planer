@@ -47,7 +47,7 @@ public class CalculateDebtPeriodNotificationHandler: IRequestHandler<CalculateDe
     }
 
     private async Task<List<AccountMovement>> GetAccountMovementsAsync(DateTimeOffset initCutOffDate, DateTimeOffset cutOffDate, 
-        int accountId, CancellationToken cancellationToken)
+        long accountId, CancellationToken cancellationToken)
     {
         var query = _accountQueryRepository.NewQueryBuilder()
             .IncludeAccountMovementFromDates(initCutOffDate, cutOffDate)

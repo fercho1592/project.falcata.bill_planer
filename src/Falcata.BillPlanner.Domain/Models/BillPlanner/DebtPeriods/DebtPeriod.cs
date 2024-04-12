@@ -5,7 +5,7 @@ namespace Falcata.BillPlanner.Domain.Models.BillPlanner.DebtPeriods;
 
 public class DebtPeriod: BaseEntity<(int AccountId, int MonthCutOffDate, int YearCutOffDate)>
 {
-    public long AccountId { get; private set; }
+    public int AccountId { get; private set; }
     public int AccountTypeId { get; private set; }
     public int MonthCutOffDate { get; internal set; }
     public int YearCutOffDate { get; internal set; }
@@ -14,7 +14,7 @@ public class DebtPeriod: BaseEntity<(int AccountId, int MonthCutOffDate, int Yea
     public DateTimeOffset InitCutOffDate { get; private set; }
     public decimal CumulativeAmount { get; private set; }
     
-    public virtual Account Account { get; private set; }
+    public virtual Account? Account { get; private set; }
     public virtual List<DebtPeriodDetail>? Details { get; set; }
 
     // internal virtual List<AccountMovement> AccountMovements { get; set; }
@@ -41,7 +41,7 @@ public class DebtPeriod: BaseEntity<(int AccountId, int MonthCutOffDate, int Yea
         
         foreach (var mov in accountMovements)
         {
-            if(Details.Exists(x => x.AccountMovementId == mov.AccountMovementId))
+            if(Details is null || Details.Exists(x => x.AccountMovementId == mov.AccountMovementId))
                continue;
             
             debtPeriodDetails.AddRange(DebtPeriodDetail.CreateDebtPeriodsDetails(mov, 1)); 

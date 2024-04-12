@@ -5,5 +5,5 @@ namespace Falcata.BillPlanner.Application.Interfaces.QueryBuilders;
 
 public interface IAccountMovementQueryBuilder: IQueryBuilder<AccountMovement>
 {
-    
+    IAccountMovementQueryBuilder IncludeDebtPeriod();
 }
