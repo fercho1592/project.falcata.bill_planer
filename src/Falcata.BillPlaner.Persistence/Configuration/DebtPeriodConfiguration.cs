@@ -27,10 +27,10 @@ public class DebtPeriodConfiguration: BaseEntityTypeConfiguration<DebtPeriod>, I
             .HasColumnName("account_type_id");
         
         builder.Property(x => x.MonthCutOffDate)
-            .HasColumnName("month_debt_Period");
+            .HasColumnName("month_pay_off");
         
         builder.Property(x => x.YearCutOffDate)
-            .HasColumnName("year_debt_period");
+            .HasColumnName("year_pay_off");
         
         builder.Property(x => x.CutOffDate)
             .HasColumnName("cut_off_date");
