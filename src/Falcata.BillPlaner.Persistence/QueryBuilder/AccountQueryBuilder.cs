@@ -32,6 +32,14 @@ public class AccountQueryBuilder: BaseQueryBuilder<Account>, IAccountQueryBuilde
         return this;
     }
 
+    public IAccountQueryBuilder IncludeDebtPeriodAccountMovements(DateTimeOffset from)
+    {
+        Query = Query.Include(x => x.DebtPeriods!.Where(period => period.CutOffDate >= from && period.InitCutOffDate <= from))
+            .ThenInclude(x => x.Details);
+        
+        return this;
+    }
+
     public IAccountQueryBuilder IncludeUnpaidPromissoryNotes()
     {
         Query = Query.Include(x => x.PromissoryNotes!.Where(note => 
