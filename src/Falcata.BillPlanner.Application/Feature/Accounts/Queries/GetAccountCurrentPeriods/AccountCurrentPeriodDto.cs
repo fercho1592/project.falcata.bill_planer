@@ -8,5 +8,5 @@ public class AccountCurrentPeriodDto
     
     public int CurrentPeriodMonth { get; set; }
     public int CurrentPeriodYear { get; set; }
-    public decimal PeriodTotalAmount { get; set; }
+    public decimal? PeriodTotalAmount { get; set; }
 }

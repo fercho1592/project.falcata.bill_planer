@@ -36,6 +36,10 @@ public class GetAccountCurrentPeriodQueryHandler: IRequestHandler<GetAccountCurr
                 CurrentPeriodYear = x.DebtPeriods?.FirstOrDefault()?.YearCutOffDate ?? currentDate.Year,
                 CurrentPeriodMonth = x.DebtPeriods?.FirstOrDefault()?.MonthCutOffDate ?? currentDate.Month,
                 AccountTypeName = x.AccountTypeName,
+                PeriodTotalAmount = x.DebtPeriods?.FirstOrDefault()?.Details?
+                    .Select(detail => detail.Movement)
+                    .Where(movement => movement?.MovementAmount > 0)
+                    .Sum(am => am?.MovementAmount ?? 0)
             }).ToList();
 
             return result;
