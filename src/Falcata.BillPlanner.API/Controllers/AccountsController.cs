@@ -1,4 +1,5 @@
 using Falcata.BillPlanner.Application.Feature.Accounts.Queries.GetAccountCurrentPeriods;
+using Falcata.BillPlanner.Application.Feature.Accounts.Queries.GetAccountMovementLists;
 using Falcata.BillPlanner.Application.Feature.Accounts.Queries.GetAccountsStatus;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -27,5 +28,12 @@ public class AccountsController: BaseController
     {
         from ??= DateTimeOffset.UtcNow;
         return await _mediator.Send(new GetAccountCurrentPeriodQuery() { CurrentDate = from.Value, AccountTypeId = 1 });
+    }
+    
+    [HttpGet("list/movements-list")]
+    public async Task<List<AccountMovementListDto>> GetAccountsMovementListAsync([FromQuery] DateTimeOffset? from)
+    {
+        from ??= DateTimeOffset.UtcNow;
+        return await _mediator.Send(new GetAccountMovementListQuery() { CurrentDate = from.Value, AccountTypeId = 1 });
     }
 }
