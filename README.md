@@ -1,20 +1,42 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# Falcata.BillPlanner
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+ASP.NET Core Web API for personal financial management.
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+## Overview
+- **Monthly Billing Plans**: Allows users to plan monthly income allocation across spending categories and budgets.
+- **Expense Logging**: Logs and categorizes actual user spending.
+- **Budget Tracking**: Compares actual expenses against planned budgets to provide insights.
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+## Falcata Ecosystem & Related Repositories
+The Falcata financial suite spans multiple repositories:
+- **Bill Planner (This Repo)**: [project.falcata.bill_planer](https://github.com/fercho1592/project.falcata.bill_planer) - Monthly budget planning and expense tracking API.
+- **Database Migrations**: [project.falcata.db_relational](https://github.com/fercho1592/project.falcata.db_relational) - Relational database schema migrations (targets SQL Server).
+- **Pay Restaurant**: [project.falcata.pay_restaurant](https://github.com/fercho1592/project.falcata.pay_restaurant) - Bill-splitting application for groups calculating individual shares and payment settlements.
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+## Documentation
+Comprehensive project specifications, architecture documents, domain models, and business requirements are maintained under [docs/](docs/).
+
+## Getting Started
+
+### Prerequisites
+- .NET 6 SDK
+- Docker & Docker Compose (for SQL Server container)
+
+### Running Infrastructure
+```bash
+docker-compose up -d
+```
+
+### Build & Run API
+```bash
+dotnet build Falcata.BillPlanner.sln
+dotnet run --project src/Falcata.BillPlanner.API/Falcata.BillPlanner.API.csproj
+```
+
+### Running Tests
+```bash
+dotnet test Falcata.BillPlanner.sln
+```
+
+## Agent Guidelines
+For AI coding agent instructions, architectural boundaries, and conventions, see [AGENTS.md](AGENTS.md).
