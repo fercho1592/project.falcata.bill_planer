@@ -19,6 +19,7 @@ Como usuario, quiero comparar mi presupuesto mensual contra lo gastado realmente
 ## Dependencias
 - ticket 01: plan mensual
 - ticket 03: gastos reales
+- requerido por ticket 08: app web MVP (consume este endpoint desde la UI)
 
 ## Notas técnicas
 - probablemente requerirá consulta agregada y cálculo de KPI financiero

@@ -17,6 +17,7 @@ Como usuario, quiero asignar presupuesto por categoría, para distribuir mi dine
 ## Dependencias
 - ticket 01: plan mensual
 - ticket 03: gastos reales
+- requerido por ticket 08: app web MVP (consume este endpoint desde la UI)
 
 ## Notas técnicas
 - entidad recomendada: CategoriaGasto

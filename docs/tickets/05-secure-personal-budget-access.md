@@ -16,6 +16,7 @@ Como usuario, quiero que mis datos financieros estén protegidos y accesibles so
 
 ## Dependencias
 - tickets 01 a 04
+- requerido por ticket 10: autenticación compartida (SSO) entre UIs
 
 ## Notas técnicas
 - requiere integración con el sistema de autenticación/autorización de la solución

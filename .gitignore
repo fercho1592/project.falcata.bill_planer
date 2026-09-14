@@ -250,3 +250,5 @@ launchSettings.json
 /nuget.config
 /npmPublish
 .DS_Store
+docs/**/*.xlsx
+docs/**/*.xlsm

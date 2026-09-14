@@ -18,6 +18,7 @@ Como usuario, quiero crear y mantener un plan mensual de gastos, para distribuir
 ## Dependencias
 - ticket 02: presupuestos por categoría
 - ticket 03: registro de gastos reales
+- requerido por ticket 08: app web MVP (consume este endpoint desde la UI)
 
 ## Notas técnicas
 - entidad recomendada: PlanMensual

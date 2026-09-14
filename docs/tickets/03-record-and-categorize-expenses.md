@@ -18,6 +18,7 @@ Como usuario, quiero registrar mis gastos reales con fecha, monto y categoría, 
 ## Dependencias
 - ticket 01: plan mensual
 - ticket 02: categorías
+- requerido por ticket 08: app web MVP (consume este endpoint desde la UI)
 
 ## Notas técnicas
 - entidad recomendada: GastoReal
