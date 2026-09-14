@@ -16,6 +16,45 @@ The Falcata financial suite spans multiple repositories:
 ## Documentation
 Comprehensive project specifications, architecture documents, domain models, and business requirements are maintained under [docs/](docs/).
 
+## Current Implementation
+
+The repository currently contains the initial ASP.NET Core Web API and MediatR wiring.
+
+### Implemented Features
+
+- ASP.NET Core Web API startup and dependency injection.
+- MediatR registration and handler discovery.
+- Swagger/OpenAPI support in the Development environment.
+- HTTPS redirection and authorization middleware. No authentication or authorization policies are configured yet.
+- A MediatR test query that returns `true`.
+
+### Implemented Endpoints
+
+#### `GET /Base`
+
+Implemented by [BaseController](src/Falcata.BillPlanner.API/Controllers/BaseController.cs). The endpoint sends `MediatorTestQuery` through MediatR and returns a plain-text response containing:
+
+```text
+Hello world
+MediatoR Test: True
+```
+
+Swagger UI is available at `/swagger` when the API is running in the Development environment.
+
+### Planned Features Not Yet Implemented
+
+The following product capabilities are described in the project overview but do not currently have controllers, endpoints, handlers, or domain models:
+
+- Monthly billing and budget plans.
+- Income allocation across spending categories.
+- Budget creation and management.
+- Expense recording and categorization.
+- Comparison of planned budgets against actual expenses.
+- Financial insights and budget tracking.
+- User authentication and authorization.
+
+There are currently no implemented endpoints for plans, categories, budgets, expenses, users, or reports.
+
 ## Getting Started
 
 ### Prerequisites
